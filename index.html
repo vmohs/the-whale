@@ -1,33 +1,75 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-	<link rel="stylesheet" href="style.css"> 
-	<link rel="icon" type="image/png" href="/favicon.png">
-	<style> body { margin: 0; padding: 0; } 
-.header { text-align: center; } 
-.whale-img { display: block; margin: 0 auto; max-height: 70vh; max-width: 100%; object-fit: contain; } 
-.nav-buttons { display: flex; justify-content: center; gap: 12px; margin-top: 16px; } 
-	</style> 
-</head> 
-<body> 
-	 <div class="video-section">
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <style>
+    body { margin: 0; padding: 0; }
 
-	<video autoplay playsinline muted loop id="myVideo"> 
-		<source src="whale.mp4" type="video/mp4">
-		 </video> 
-		     <div class="content-overlay">
-				 <div class="header" class="content"> 
-		<h1>The Whale</h1> <h2>by Venus Mohs</h2> 
-	</div> 
-<img src="whale.gif" class="whale-img" style="opacity: 0.8;">
-		 <div class="nav-buttons"> 
-		 	<button onclick="window.location.href='about.html'">About</button> 
-		 	<button onclick="window.location.href='making.html'">Making</button>
-		 	<button onclick="window.location.href='transcription.html'">Transcription</button> 
-		 	<button onclick="window.location.href='essays.html'">Essays</button> 
-		 	<button onclick="window.location.href='bibliography.html'">Bibliography</button>
-		 	 <button onclick="window.location.href='artist.html'">Artist</button>
-		 	  </div> 
-		 	</div>
-		 	</body> 
-		 	</html>
+    .video-section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+    }
+
+    #myVideo {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .content-overlay {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 48px;
+    }
+
+    .whale-img {
+      display: block;
+      margin: 0 auto;
+      max-height: 70vh;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="video-section">
+    <video autoplay playsinline muted loop id="myVideo">
+      <source src="whale.mp4" type="video/mp4">
+    </video>
+
+    <div class="content-overlay">
+      <div class="header">
+        <h1>The Whale</h1>
+        <h2>by Venus Mohs</h2>
+      </div>
+
+      <img src="whale.gif" class="whale-img" style="opacity: 0.8;">
+
+      <div class="nav-buttons">
+        <button onclick="window.location.href='about.html'">About</button>
+        <button onclick="window.location.href='making.html'">Making</button>
+        <button onclick="window.location.href='transcription.html'">Transcription</button>
+        <button onclick="window.location.href='essays.html'">Essays</button>
+        <button onclick="window.location.href='bibliography.html'">Bibliography</button>
+        <button onclick="window.location.href='artist.html'">Artist</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
