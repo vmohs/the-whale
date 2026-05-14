@@ -75,7 +75,7 @@ h3 {
  text-shadow: 0 0 10px white;
 }
 
-/* ---- Body Text ---- */
+
 p, li, td, th, label, input, textarea, select {
   font-family: Arial, Helvetica, sans-serif;
   position:relative;
@@ -98,12 +98,29 @@ a {
 }
 
 
-.nav-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  padding: 16px;
+@keyframes glitch-clip {
+  0%   { clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); transform: translate(0,0); }
+  20%  { clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); transform: translate(-2px, 0); }
+  21%  { clip-path: polygon(6px 15%, 100% 15%, calc(100% - 6px) 45%, 0% 45%); transform: translate(3px, 0); color: #ff80f0; }
+  22%  { clip-path: polygon(6px 60%, 100% 60%, calc(100% - 6px) 85%, 0% 85%); transform: translate(-3px, 0); color: #80ffee; }
+  23%  { clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); transform: translate(0,0); color: #e8d9ff; }
+  80%  { clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); transform: translate(0,0); }
+  81%  { clip-path: polygon(6px 30%, 100% 30%, calc(100% - 6px) 55%, 0% 55%); transform: translate(2px, 0); color: #ff80f0; }
+  82%  { clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); transform: translate(0,0); color: #e8d9ff; }
+  100% { clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); transform: translate(0,0); }
+}
+
+@keyframes glitch-shadow {
+  0%, 20%, 23%, 80%, 82%, 100% { text-shadow: none; }
+  21% { text-shadow: 2px 0 #ff80f0, -2px 0 #80ffee; }
+  81% { text-shadow: -2px 0 #ff80f0, 2px 0 #80ffee; }
+}
+
+@keyframes glitch-bg {
+  0%, 23%, 82%, 100% { background-color: rgba(100, 70, 180, 0.55); }
+  21% { background-color: rgba(180, 50, 160, 0.6); }
+  22% { background-color: rgba(50, 180, 170, 0.5); }
+  81% { background-color: rgba(160, 60, 180, 0.6); }
 }
 
 .nav-buttons button {
@@ -115,13 +132,22 @@ a {
   background-color: rgba(100, 70, 180, 0.55);
   color: #e8d9ff;
   clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
-  transition: background-color 0.2s ease, clip-path 0.2s ease;
   letter-spacing: 0.04em;
+  position: relative;
+  animation: glitch-clip 4s infinite, glitch-shadow 4s infinite, glitch-bg 4s infinite;
 }
 
+.nav-buttons button:nth-child(2) { animation-delay: 0.6s; }
+.nav-buttons button:nth-child(3) { animation-delay: 1.2s; }
+.nav-buttons button:nth-child(4) { animation-delay: 1.9s; }
+.nav-buttons button:nth-child(5) { animation-delay: 0.3s; }
+.nav-buttons button:nth-child(6) { animation-delay: 2.4s; }
+
 .nav-buttons button:hover {
+  animation: none;
   background-color: rgba(130, 90, 210, 0.75);
   clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
+  text-shadow: 3px 0 #ff80f0, -3px 0 #80ffee;
 }
 
 
